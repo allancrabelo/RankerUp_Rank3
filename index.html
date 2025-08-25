@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Examrank 3 Study - 42</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="background-animation"></div>
+	<div class="particles-container" id="particles"></div>
+	
+	<header>
+		<div class="nav-container">
+			<div class="logo">
+				<span class="logo-icon">42</span>
+				<span class="logo-text">RankerUp</span>
+			</div>
+			<div class="header-buttons">
+				<button class="header-btn" onclick="window.open('https://chat.openai.com', '_blank')">
+					<i class="fa-solid fa-robot"></i>
+					<span>ChatGPT</span>
+				</button>
+				<button class="header-btn copy-btn" onclick="copyText()">
+					<i class="fa-regular fa-copy"></i>
+					<span>Copy Text</span>
+				</button>
+				<button class="header-btn clear-btn" onclick="clearProgress()">
+					<i class="fa-regular fa-trash-can"></i>
+					<span>Clear Progress</span>
+				</button>
+			</div>
+		</div>
+	</header>
+
+	<main>
+		<div class="container">
+			<div class="hero-section">
+				<h1 class="title">
+					<span class="gradient-text">EXAMRANK 3</span>
+					<span class="subtitle">Unlock Your Pontential</span>
+				</h1>
+				<p class="description">Advanced study tool for 42 School students preparing for the challenging Examshell rank 3</p>
+			</div>
+
+			<div class="dashboard">
+				<div class="stats-section">
+					<div class="stats-grid">
+						<div class="stat-card">
+							<div class="stat-icon">
+								<i class="fa-solid fa-1"></i>
+							</div>
+							<div class="stat-content">
+								<div class="stat-number" id="level1-score">0/0</div>
+								<div class="stat-label">Level 1 Score</div>
+							</div>
+						</div>
+						<div class="stat-card">
+							<div class="stat-icon">
+								<i class="fa-solid fa-2"></i>
+							</div>
+							<div class="stat-content">
+								<div class="stat-number" id="level2-score">0/0</div>
+								<div class="stat-label">Level 2 Score</div>
+							</div>
+						</div>
+						<div class="stat-card highlight">
+							<div class="stat-icon">
+								<i class="fa-solid fa-chart-line"></i>
+							</div>
+							<div class="stat-content">
+								<div class="stat-number" id="total-score">0%</div>
+								<div class="stat-label">Total Mastery</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="chart-section">
+					<div class="section-header">
+						<h3>Progress Overview</h3>
+						<div class="chart-legend">
+							<div class="legend-item">
+								<div class="color-dot level1-dot"></div>
+								<span>Level 1</span>
+							</div>
+							<div class="legend-item">
+								<div class="color-dot level2-dot"></div>
+								<span>Level 2</span>
+							</div>
+						</div>
+					</div>
+					<div class="chart-container">
+						<canvas id="progressChart"></canvas>
+					</div>
+				</div>
+			</div>
+
+			<div class="question-section">
+				<div class="section-header">
+					<h3>Current Challenge</h3>
+					<div class="level-badge" id="current-level">
+						<i class="fa-solid fa-layer-group"></i>
+						<span>Level 1</span>
+					</div>
+				</div>
+				
+				<div class="question-card">
+					<div class="question-header">
+						<i class="fa-solid fa-code"></i>
+						<h2 id="question-title">Loading question...</h2>
+					</div>
+					<div class="question-actions">
+						<button class="action-btn correct" onclick="markAnswer(true)">
+							<i class="fa-solid fa-check"></i>
+							<span>Correct</span>
+						</button>
+						<button class="action-btn wrong" onclick="markAnswer(false)">
+							<i class="fa-solid fa-xmark"></i>
+							<span>Wrong</span>
+						</button>
+						<button class="action-btn subject" onclick="showSubject()">
+							<i class="fa-solid fa-book"></i>
+							<span>Show Subject</span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<footer class="footer">
+		<div class="footer-content">
+			<p>Developed by <span class="footer-name">Allan Rabelo</span> - Full Stack Developer</p>
+			<div class="footer-links">
+				<a href="https://www.linkedin.com/in/allan-rabelo" target="_blank" class="footer-link">
+					<i class="fab fa-linkedin"></i> LinkedIn
+				</a>
+				<a href="https://github.com/allanrabelo" target="_blank" class="footer-link">
+					<i class="fab fa-github"></i> GitHub
+				</a>
+			</div>
+		</div>
+	</footer>
+
+	<div id="subject-modal" class="modal">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h3>
+					<i class="fa-solid fa-circle-info"></i>
+					Subject Information
+				</h3>
+				<span class="close" onclick="closeModal()">
+					<i class="fa-solid fa-xmark"></i>
+				</span>
+			</div>
+			<div class="modal-body">
+				<div id="subject-content">Loading...</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="notification-container" id="notification-container"></div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@1.0.2/dist/chartjs-plugin-annotation.min.js"></script>
+	<script src="script.js"></script>
+</body>
+</html>
