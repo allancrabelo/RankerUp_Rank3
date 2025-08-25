@@ -46,8 +46,8 @@ let gameState = {
 	level2Stats: { correct: 0, total: 0 }
 };
 
-// Texto para copiar (personalize conforme necessário)
-const textToCopy = "Studying for Examrank 3 at 42 School - Systems Programming Challenge";
+// Texto para copiar 
+const textToCopy = "Vou lhe mandar um subject e logo a seguir a minha implementação, diga me se esta certo ou errado de maneira direta, nao ligue para eficencia, quero saber se foi solucinado e se passa em todos os testes";
 
 // Chart instance
 let progressChart = null;
