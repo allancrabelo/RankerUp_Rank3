@@ -8,53 +8,56 @@ typedef struct {
     float x, y;
 } City;
 
-int n;
 City cities[MAX];
+int n;
 float dist[MAX][MAX];
 int used[MAX];
 int path[MAX];
-float best = -1.0;
+float best = 1e9; // inicializa com valor grande
 
+// calcula distância euclidiana usando sqrtf
 float distance(City a, City b) {
     return sqrtf((a.x - b.x)*(a.x - b.x) + (a.y - b.y)*(a.y - b.y));
 }
 
+// busca recursiva por todas as rotas
 void search(int k, float length) {
     if (k == n) {
-        // fecha o ciclo (volta pra cidade inicial)
-        length += dist[path[n-1]][path[0]];
-        if (best < 0 || length < best)
+        length += dist[path[n-1]][path[0]]; // fecha o ciclo
+        if (length < best)
             best = length;
         return;
     }
+
     for (int i = 0; i < n; i++) {
         if (!used[i]) {
             used[i] = 1;
             path[k] = i;
+            float new_length = length;
             if (k > 0)
-                search(k+1, length + dist[path[k-1]][i]);
-            else
-                search(k+1, 0.0); // primeira cidade não soma nada
+                new_length += dist[path[k-1]][i];
+            search(k+1, new_length);
             used[i] = 0;
         }
     }
 }
 
 int main(void) {
-    // leitura
     n = 0;
-    while (scanf("%f, %f", &cities[n].x, &cities[n].y) == 2)
+    // leitura de cidades usando fscanf(stdin)
+    while (fscanf(stdin, " %f , %f", &cities[n].x, &cities[n].y) == 2)
         n++;
 
-    // pré-calcula distâncias
+    // pré-calcula todas as distâncias
     for (int i = 0; i < n; i++)
         for (int j = 0; j < n; j++)
             dist[i][j] = distance(cities[i], cities[j]);
 
-    // busca recursiva
+    // inicia busca
     search(0, 0.0);
 
-    // saída
-    printf("%.2f\n", best);
+    // imprime resultado usando fprintf
+    fprintf(stdout, "%.2f\n", best);
+
     return 0;
 }
