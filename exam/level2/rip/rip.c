@@ -65,3 +65,11 @@ int	main(int ac, char *av[])
 	print_solutions(str, 0, 0, 0, 0, min_remove, buffer);
 	return (0);
 }
+
+/*
+Note: Do NOT check if argv is empty. The program must handle an empty string
+argument correctly. For example:
+
+$> ./a.out "" | cat -e
+$> $ -> expected output
+*/
