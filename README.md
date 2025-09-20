@@ -17,6 +17,10 @@ More than just a collection of exercises, RankerUp is designed as an interactive
 
 # 🌟 What makes it unique? Every exercise doesn’t just test your solution — it teaches you to structure your thinking and build confidence for the real exam.
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/51a1b37a-a0e9-41d5-a602-29259bc69363" />
+</p>
+
 ## 🛠️ Technical Challenges I Solved
 
 Building RankerUp required solving complex engineering problems, such as:
@@ -37,12 +41,13 @@ Built a test runner that not only validates results but also provides guidance o
 [![Visit RankerUp](https://img.shields.io/badge/Visit-RankerUp-blue?style=for-the-badge&logo=vercel)](https://rankerup-rank3.vercel.app/)
 
 ## ⚡ Key Features
-
-✔️ Progressive challenges: from basics to advanced backtracking problems.
-✔️ Exercises that simulate real Rank 3 exam questions.
-✔️ Clear explanations and error insights.
-✔️ Written in pure, optimized C.
-✔️ Fully open-source and extendable.
+```
+  ✔️ Progressive challenges: from basics to advanced backtracking problems.
+  ✔️ Exercises that simulate real Rank 3 exam questions.
+  ✔️ Clear explanations and error insights.
+  ✔️ Written in pure, optimized C.
+  ✔️ Fully open-source and extendable.
+```
 
 ## 🎨 Innovation & Creativity
 
